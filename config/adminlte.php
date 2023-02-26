@@ -379,7 +379,7 @@ return [
         ],
         [
             'text' => 'Ponto de Vendas (PDV)',
-            'url'  => 'order',
+            'url'  => 'orders',
             'icon' => 'fas fa-fw fa-user',
         ],
         ['header' => 'labels'],

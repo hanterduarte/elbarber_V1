@@ -35,7 +35,7 @@ Route::resource('/categories', CategoryController::class);
 Route::resource('/products', ProductController::class);
 
 /*ROTAS PARA VENDAS(PDV)*/
-Route::resource('/order', OrderController::class);
+Route::resource('/orders', OrderController::class);
 
 /*Route::get('/order', OrderController::class)->name('venda');
 Route::post('/order', OrderController::class)->name('venda.registrar');

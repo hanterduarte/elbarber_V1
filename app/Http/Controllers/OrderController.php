@@ -2,67 +2,73 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use App\Models\Category;
+use App\Models\Product;
 use App\Models\Order;
 
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        return view('order.index');
+        $orders = Order::all();
+        return view('orders.index', compact('orders'));
+       // return view('orders.index', ['orders' => $orders,'products' => $products ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+
+        $products = Product::all();
+        $orders = Order::all();
+
+        return view('orders.create', ['orders' => $orders,'products' => $products ]);
+       // return view('orders.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
-        //
+        //dd($request);
+        $order = new Order();
+        $order->customer_name = $request->input('customer_name');
+        $order->id_products = $request->input('id_products');
+        //$order->total_amount = $request->input('total_amount');
+        $order->save();
+
+        return redirect()->route('orders.index')->with('success', 'Order created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(Order $order)
     {
-        //
+        return view('orders.show', compact('order'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(Order $order)
     {
-        //
+        return view('orders.edit', compact('order'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Order $order)
     {
-        //
+        $order->customer_name = $request->input('customer_name');
+        $order->customer_email = $request->input('customer_email');
+        $order->total_amount = $request->input('total_amount');
+        $order->save();
+
+        return redirect()->route('orders.index')->with('success', 'Order updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Order $order)
     {
-        //
+        $order->delete();
+
+        return redirect()->route('orders.index')->with('success', 'Order deleted successfully.');
     }
 }
