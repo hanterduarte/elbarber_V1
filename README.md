@@ -15,17 +15,6 @@ Como trata-se de um sistema para aprendizagem não consigo afirmar se terá toda
 
 ## Demonstração
 
-Funcionalidades globais:
-- Sistema de notificação para ações bem sucedidas e má sucedidas;
-- Receba notificações informando quando um produto no estoque atingir o mínimo de unidades, ficar abaixo do mínimo ou não houver mais produto.
-
-<p align="center">
-  <strong>Painel do ponto de venda, comanda e comunicação com a cozinha</strong> <br />
-  <img src="./demo/venda.gif" alt="Demonstração do ponto de venda e comanda" />
-</p>
-
-Funcionalidades do campo **Faça pedido**:
-- Busca dinâmica de pr
 
 ## Quais tecnologias foram usadas?
 
