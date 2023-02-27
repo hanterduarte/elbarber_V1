@@ -1,6 +1,6 @@
 <h1 align="center">ElBarber -- Projeto de aprendizagem de LARAVEL</h1>
 
-Este projeto esta sendo desenvolvido com o intuito de aprendisagem do framework LARAVEL.
+Este projeto esta sendo desenvolvido com o intuito de aprendizagem do framework LARAVEL.
 
 
 ## O que é?

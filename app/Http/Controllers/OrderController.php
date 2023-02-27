@@ -34,7 +34,7 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+        //dd($request);
         $order = new Order();
         $order->customer_name = $request->input('customer_name');
         $order->id_products = $request->input('id_products');
