@@ -20,7 +20,7 @@ Como trata-se de um sistema para aprendizagem não consigo afirmar se terá toda
 
 - [Framework LARAVEL](https://laravel.com/)
 - [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML), [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS) e [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-- [Bootstrap](https://getbootstrap.com/), [Bootstrap Notify](https://github.com/mouse0270/bootstrap-notify) 
+- [Bootstrap](https://getbootstrap.com/)
 - [PHP .x](https://www.php.net/) e [MySQL](https://www.mysql.com/)
 
 
