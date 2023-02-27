@@ -1,4 +1,4 @@
-<h1 align="center">ElBarber -- Projeto de aprendisagem de LARAVEL</h1>
+<h1 align="center">ElBarber -- Projeto de aprendizagem de LARAVEL</h1>
 
 Este projeto esta sendo desenvolvido com o intuito de aprendisagem do framework LARAVEL.
 
