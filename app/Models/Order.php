@@ -10,9 +10,13 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'id_products', 'price'
+    ];
+
     public function products() {
 
-	    return $this->hasMany(Product::class, 'id_products');
+	    return $this->belogsto(Product::class, 'id_products','id');
 
     }
 }

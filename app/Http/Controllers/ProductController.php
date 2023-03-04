@@ -162,4 +162,20 @@ class ProductController extends Controller
         return redirect()->route('products.index')
         ->with('success','Produto excluido com sucesso!');
     }
+
+   /* public function exibir($id)
+    {
+
+        $product = Product::findOrFail($id);
+
+        return response()->json(['price' => $product->price]);
+    
+    }*/
+
+    public function price(Request $request)
+    {
+        $product = Product::findOrFail($request->input('product_id'));
+        return response()->json(['price' => $product->price]);
+    }
+
 }

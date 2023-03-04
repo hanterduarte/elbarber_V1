@@ -33,6 +33,7 @@ Route::resource('/categories', CategoryController::class);
 
 /*ROTAS PARA PRODUTOS*/
 Route::resource('/products', ProductController::class);
+Route::post('/products/price', 'ProductController@price')->name('product.price');
 
 /*ROTAS PARA VENDAS(PDV)*/
 Route::resource('/orders', OrderController::class);
@@ -45,3 +46,9 @@ Route::post('/venda/cancelar/', OrderController::class)->name('venda.cancelar');
 
 /*ROTAS PARA SERIES*/
 Route::resource('/series', SeriesController::class);
+
+//Route::resource('products', 'ProductController')->except('show');
+//Route::get('products/search', [ProductController::class, 'search'])->name('products.search');
+
+//Route::resource('orders', 'OrderController')->except('show');
+//Route::get('orders/search-products', 'OrderController@searchProducts')->name('orders.search-products');

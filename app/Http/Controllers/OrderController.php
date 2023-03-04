@@ -34,14 +34,42 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        //dd($request);
+        /*//dd($request);
         $order = new Order();
         $order->customer_name = $request->input('customer_name');
         $order->id_products = $request->input('id_products');
         //$order->total_amount = $request->input('total_amount');
         $order->save();
 
-        return redirect()->route('orders.index')->with('success', 'Order created successfully.');
+        return redirect()->route('orders.index')->with('success', 'Order created successfully.');*/
+
+        dd($request);
+        $order = new Order();
+        $order->customer_name = $request->input('customer_name');
+        //$order->total = 0; // O valor total será atualizado mais tarde
+        $order->save();
+
+        foreach ($request->input('products') as $productId => $quantity) {
+            $product = Product::findOrFail($productId);
+            $price = $product->price;
+            $subtotal = $price * $quantity;
+
+            $item = new OrderItem();
+            $item->order_id = $order->id;
+            $item->product_id = $product->id;
+            $item->quantity = $quantity;
+            $item->price = $price;
+            $item->subtotal = $subtotal;
+            $item->save();
+
+            $order->total += $subtotal;
+        }
+
+        $order->save();
+
+        return redirect()->route('order.index')->with('success', 'Pedido criado com sucesso!');
+
+        
     }
 
     public function show(Order $order)

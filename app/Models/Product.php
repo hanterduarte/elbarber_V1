@@ -11,6 +11,10 @@ use App\Models\Order;
 class Product extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name', 'price'
+    ];
     
     public function category() {
 
@@ -19,7 +23,20 @@ class Product extends Model
 
     public function order() {
 
-        return $this->belongsTo(Order::class, 'id_products', 'id');
+        return $this->hasMany(Order::class, 'id_products', 'id');
     }
+
+   /* public function orders()
+{
+    return $this->belongsToMany(Order::class, 'order_products')
+        ->withPivot('quantidade', 'preco_unitario')
+        ->withTimestamps();
+}*/
+    /*public function orders()
+    {
+        return $this->belongsToMany(Order::class)
+                    ->withPivot('quantity', 'price')
+                    ->withTimestamps();
+    }*/
 
 }
